@@ -76,8 +76,9 @@ function generateMarkdown(data) {
     projectDesc,
     projectInstall,
     projectUsage,
-    projectCredits,
     projectLicenses,
+    projectContrib,
+    projectTests,
     githubUserName,
     githubLink,
     githubEmail,
@@ -87,20 +88,36 @@ function generateMarkdown(data) {
   if (projectTitle) fullMarkDown += `# ${projectTitle}` + lineBreak;
 
   // Description render
-  if (projectDesc)
-    fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
+  fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
 
   // Table of Contents render
 
   // Installation render
-  if (projectInstall)
-    fullMarkDown += "## Installation" + lineBreak + projectInstall + lineBreak;
+  fullMarkDown += "## Installation" + lineBreak + projectInstall + lineBreak;
 
   // Usage Render
-  if (projectUsage)
-    fullMarkDown += "## Usage" + lineBreak + projectUsage + lineBreak;
+  fullMarkDown += "## Usage" + lineBreak + projectUsage + lineBreak;
 
-  fullMarkDown += renderLicenseSection(projectLicenses);
+  // License render
+
+  fullMarkDown += renderLicenseSection(projectLicenses) + lineBreak;
+
+  // Contribution render
+
+  fullMarkDown += "## Contributing" + lineBreak + projectContrib + lineBreak;
+
+  // Test render
+
+  fullMarkDown += "## Tests" + lineBreak + projectTests + lineBreak;
+
+  // Questions render
+
+  fullMarkDown +=
+    "## Questions" +
+    lineBreak +
+    `[${githubUserName}](${githubLink})` +
+    lineBreak +
+    `Email: ${githubEmail}`;
 
   return fullMarkDown;
 }

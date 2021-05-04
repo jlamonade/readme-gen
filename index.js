@@ -30,11 +30,6 @@ const questions = [
     message: "Enter Usage Instructions: ",
   },
   {
-    type: "input",
-    name: "projectCredits",
-    message: "Enter Project Credits: ",
-  },
-  {
     type: "checkbox",
     name: "projectLicenses",
     message: "Choose license(s): ",
@@ -48,6 +43,16 @@ const questions = [
       "CC BY 4.0",
       "EPL-2.0",
     ]
+  },
+  {
+    type: "input",
+    name: "projectContrib",
+    message: "Enter Contributing Instructions: ",
+  },
+  {
+    type: "input",
+    name: "projectTests",
+    message: "Enter Testing Instructions: ",
   },
   {
     /* github username */
