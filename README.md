@@ -1,16 +1,16 @@
-# Cool project
+# README-gen
 
 ## Description
 
-this project will make you cool
+Generates a professional looking README.md using inputs from the USER through the CLI
 
 ## Installation
 
-npm i cool-project
+node index
 
 ## Usage
 
-Use it to make you cool
+node index
 
 ## License
 
