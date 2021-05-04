@@ -1,7 +1,28 @@
 // TODO: Include packages needed for this application
+const inquirer = require("inquirer");
+const genMd = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+  {
+    /* title */
+  },
+  {
+    /* description */
+  },
+  {
+    /* installation */
+  },
+  {
+    /* usage */
+  },
+  {
+    /* contrib */
+  },
+  {
+    /* Tests */
+  }
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
