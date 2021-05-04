@@ -85,12 +85,22 @@ function generateMarkdown(data) {
   } = data;
 
   // Project Title render
-  if (projectTitle) fullMarkDown += `# ${projectTitle}` + lineBreak;
+  fullMarkDown += `# ${projectTitle}` + lineBreak;
 
   // Description render
   fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
 
   // Table of Contents render
+  fullMarkDown +=
+    "## Table of Contents" + 
+    lineBreak + 
+    "- [Installation](#installation)\n" + 
+    "- [Usage](#usage)\n" +
+    "- [License](#license)\n" +
+    "- [Contributing](#contributing)\n" +
+    "- [Tests](#tests)\n" +
+    "- [Questions](#questions)\n" +
+    lineBreak;
 
   // Installation render
   fullMarkDown += "## Installation" + lineBreak + projectInstall + lineBreak;
