@@ -49,18 +49,18 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   // License Markdown Text renderer
-  let licenseMdText = `## License\n\n`;
+  let licenseMdText = `## License\n\n`; // title of section
   if (license.length) {
-    const appendBadges = (license) => {
-      license.forEach((licenseName) => {
-        licenseMdText += `[![License: ${licenseName}](${renderLicenseBadge(
-          licenseName
-        )})](${renderLicenseLink(licenseName)}) `;
-      });
-    };
-    appendBadges(license);
+    /* 
+      if licenses were chosen then a badge and link will be rendered and 
+      appended to licenseMdText 
+    */
+    license.forEach((licenseName) => {
+      licenseMdText += `[![License: ${licenseName}](${renderLicenseBadge(
+        licenseName
+      )})](${renderLicenseLink(licenseName)}) `;
+    });
   }
-
   return licenseMdText;
 }
 
@@ -76,22 +76,31 @@ function generateMarkdown(data) {
     projectDesc,
     projectInstall,
     projectUsage,
-    projectContrib,
-    projectTests,
+    projectCredits,
+    projectLicenses,
     githubUserName,
     githubLink,
     githubEmail,
   } = data;
 
   // Project Title render
-  fullMarkDown += `# ${projectTitle}` + lineBreak;
+  if (projectTitle) fullMarkDown += `# ${projectTitle}` + lineBreak;
 
   // Description render
-  fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
+  if (projectDesc)
+    fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
 
-  // Table of Contents
+  // Table of Contents render
 
-  fullMarkDown += renderLicenseSection(projectUsage);
+  // Installation render
+  if (projectInstall)
+    fullMarkDown += "## Installation" + lineBreak + projectInstall + lineBreak;
+
+  // Usage Render
+  if (projectUsage)
+    fullMarkDown += "## Usage" + lineBreak + projectUsage + lineBreak;
+
+  fullMarkDown += renderLicenseSection(projectLicenses);
 
   return fullMarkDown;
 }

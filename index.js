@@ -25,9 +25,19 @@ const questions = [
   },
   {
     /* usage */
-    type: "checkbox",
+    type: "input",
     name: "projectUsage",
-    message: "Choose OSI License(s): ",
+    message: "Enter Usage Instructions: ",
+  },
+  {
+    type: "input",
+    name: "projectCredits",
+    message: "Enter Project Credits: ",
+  },
+  {
+    type: "checkbox",
+    name: "projectLicenses",
+    message: "Choose license(s): ",
     choices: [
       "Apache-2.0",
       "BSD-3-Clause",
@@ -37,19 +47,7 @@ const questions = [
       "MPL-2.0",
       "CC BY 4.0",
       "EPL-2.0",
-    ],
-  },
-  {
-    /* contrib */
-    type: "input",
-    name: "projectContrib",
-    message: "Enter Contributing Instructions: ",
-  },
-  {
-    /* Tests */
-    type: "input",
-    name: "projectTests",
-    message: "Enter Testing Info: ",
+    ]
   },
   {
     /* github username */
