@@ -34,11 +34,11 @@ const questions = [
     name: "projectLicenses",
     message: "Choose license(s): ",
     choices: [
+      "MIT",
       "Apache-2.0",
       "BSD-3-Clause",
       "GPL-3.0",
       "LGPL-3.0",
-      "MIT",
       "MPL-2.0",
       "CC BY 4.0",
       "EPL-2.0",
@@ -77,7 +77,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   fs.appendFile(fileName, genMd(data), (err) =>
-    err ? console.log(err) : console.log("Text Appended")
+    err ? console.log(err) : console.log("README generated!")
   );
 }
 

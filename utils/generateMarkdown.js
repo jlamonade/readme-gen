@@ -49,7 +49,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   // License Markdown Text renderer
-  let licenseMdText = `## License\n\n`; // title of section
+  let licenseMdText = ``; // title of section
   if (license.length) {
     /* 
       if licenses were chosen then a badge and link will be rendered and 
@@ -84,21 +84,23 @@ function generateMarkdown(data) {
     githubEmail,
   } = data;
 
+  const licenseBadges = renderLicenseSection(projectLicenses);
+
   // Project Title render
   fullMarkDown += `# ${projectTitle}` + lineBreak;
+
+  // License badge render
+
+  fullMarkDown += licenseBadges + lineBreak;
 
   // Description render
   fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
 
-  // License render
-
-  fullMarkDown += renderLicenseSection(projectLicenses) + lineBreak;
-
   // Table of Contents render
   fullMarkDown +=
-    "## Table of Contents" + 
-    lineBreak + 
-    "- [Installation](#installation)\n" + 
+    "## Table of Contents" +
+    lineBreak +
+    "- [Installation](#installation)\n" +
     "- [Usage](#usage)\n" +
     "- [License](#license)\n" +
     "- [Contributing](#contributing)\n" +
@@ -107,10 +109,22 @@ function generateMarkdown(data) {
     lineBreak;
 
   // Installation render
-  fullMarkDown += "## Installation" + lineBreak + projectInstall + lineBreak;
+  fullMarkDown +=
+    "## Installation" + lineBreak + "```" + projectInstall + "```" + lineBreak;
 
   // Usage Render
-  fullMarkDown += "## Usage" + lineBreak + projectUsage + lineBreak;
+  fullMarkDown +=
+    "## Usage" + lineBreak + "```" + projectUsage + "```" + lineBreak;
+
+  // License render
+
+  fullMarkDown +=
+    "## License" +
+    lineBreak +
+    "This project is distrubuted under the following licenses:" +
+    lineBreak +
+    licenseBadges +
+    lineBreak;
 
   // Contribution render
 
@@ -118,14 +132,15 @@ function generateMarkdown(data) {
 
   // Test render
 
-  fullMarkDown += "## Tests" + lineBreak + projectTests + lineBreak;
+  fullMarkDown +=
+    "## Tests" + lineBreak + "```" + projectTests + "```" + lineBreak;
 
   // Questions render
 
   fullMarkDown +=
     "## Questions" +
     lineBreak +
-    `[${githubUserName}](${githubLink})` +
+    `Github: [${githubUserName}](${githubLink})` +
     lineBreak +
     `Email: ${githubEmail}`;
 
