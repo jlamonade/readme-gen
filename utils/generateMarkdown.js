@@ -90,6 +90,10 @@ function generateMarkdown(data) {
   // Description render
   fullMarkDown += "## Description" + lineBreak + projectDesc + lineBreak;
 
+  // License render
+
+  fullMarkDown += renderLicenseSection(projectLicenses) + lineBreak;
+
   // Table of Contents render
   fullMarkDown +=
     "## Table of Contents" + 
@@ -107,10 +111,6 @@ function generateMarkdown(data) {
 
   // Usage Render
   fullMarkDown += "## Usage" + lineBreak + projectUsage + lineBreak;
-
-  // License render
-
-  fullMarkDown += renderLicenseSection(projectLicenses) + lineBreak;
 
   // Contribution render
 
