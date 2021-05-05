@@ -2,6 +2,7 @@
 // If there is no license, return an empty string
 
 function renderLicenseBadge(license) {
+  // returns the badge for the corresponding type of license
   switch (license) {
     case "Apache-2.0":
       return "https://img.shields.io/badge/License-Apache%202.0-blue.svg";
@@ -25,6 +26,7 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  // returns the link to more info for the corresponding to the type of license
   switch (license) {
     case "Apache-2.0":
       return "https://opensource.org/licenses/Apache-2.0";
@@ -48,25 +50,31 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  // License Markdown Text renderer
-  let licenseMdText = ``; // title of section
+  /* 
+  renders the license badges that are linked to webpages with more
+  information about the licenses
+  */
+  let licenseBadgeMd = ``; // badges are appended to this string
   if (license.length) {
     /* 
       if licenses were chosen then a badge and link will be rendered and 
-      appended to licenseMdText 
+      appended to licenseMdText
     */
     license.forEach((licenseName) => {
-      licenseMdText += `[![License: ${licenseName}](${renderLicenseBadge(
+      licenseBadgeMd += `[![License: ${licenseName}](${renderLicenseBadge(
         licenseName
       )})](${renderLicenseLink(licenseName)}) `;
     });
   }
-  return licenseMdText;
+  return licenseBadgeMd;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  // Full readme markdown
+  /* 
+  Full readme markdown, content MD to be appended to this variable
+  and then returned to be appended to the README.md file
+  */
   let fullMarkDown = "";
   const lineBreak = "\n\n";
 

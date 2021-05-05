@@ -76,6 +76,11 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+  /* 
+  Passes the answers to genMd() which will generate the markdown
+  text. If there is no error, the generated markdown text will be 
+  appended to readme.md
+  */
   fs.appendFile(fileName, genMd(data), (err) =>
     err ? console.log(err) : console.log("README generated!")
   );
@@ -83,6 +88,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
+  // starts inquirer.prompt() and passes the answers to writeToFile()
   inquirer.prompt(questions).then((answers) => {
     writeToFile("README.md", answers);
   });
