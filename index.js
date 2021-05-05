@@ -90,7 +90,7 @@ function writeToFile(fileName, data) {
 function init() {
   // starts inquirer.prompt() and passes the answers to writeToFile()
   inquirer.prompt(questions).then((answers) => {
-    writeToFile("README.md", answers);
+    writeToFile("temp-README.md", answers);
   });
 }
 
