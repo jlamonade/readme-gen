@@ -81,7 +81,7 @@ function writeToFile(fileName, data) {
   text. If there is no error, the generated markdown text will be 
   appended to readme.md
   */
-  fs.appendFile(fileName, genMd(data), (err) =>
+  fs.writeFile(fileName, genMd(data), (err) =>
     err ? console.log(err) : console.log("README generated!")
   );
 }
